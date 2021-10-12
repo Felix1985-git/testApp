@@ -15,13 +15,15 @@ public class TestSqlApplication {
 
 //      - Получить количество неактивных (не было сессий) клиентов.
 //      Вариант 1
-//      SELECT count (USERID) from USERS
-//      where USERID not in(SELECT distinct USERID from USERSESSIONS )
+//      SELECT COUNT (clientid ) FROM users
+//      WHERE userid NOT IN (SELECT DISTINCT userid FROM usersessions)
 
 //      Вариант 2
-//      SELECT COUNT (*)
-//      FROM USERSESSIONS  t
-//      RIGHT JOIN USERS c on t.USERID=c.USERID
-//      WHERE t.USERID is NULL
+//      SELECT COUNT (clientid)
+//      FROM usersessions t
+//      RIGHT JOIN users c on t.userid=c.userid
+//      WHERE t.userid IS NULL
 
-
+//      - Получить список уникальных UserId активных пользователей, которые не пользовались каналом 1.
+//      SELECT DISTINCT userid
+//      FROM usersessions WHERE channeltype NOT IN (1)
