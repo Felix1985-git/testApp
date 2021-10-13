@@ -21,9 +21,15 @@ public class TestSqlApplication {
 //      Вариант 2
 //      SELECT COUNT (clientid)
 //      FROM usersessions t
-//      RIGHT JOIN users c on t.userid=c.userid
+//      RIGHT JOIN users c ON t.userid=c.userid
 //      WHERE t.userid IS NULL
 
 //      - Получить список уникальных UserId активных пользователей, которые не пользовались каналом 1.
 //      SELECT DISTINCT userid
 //      FROM usersessions WHERE channeltype NOT IN (1)
+
+//      - Получить максимальное UserId активного пользователя, статус которого также не равен 1.
+//      SELECT MAX(t.userid)
+//      FROM usersessions t
+//      JOIN users c ON t.userid=c.userid
+//      WHERE c.status NOT IN (1)
