@@ -21,8 +21,10 @@
     <form method="get" action="getMaxActiveUserIdStatusNot1">
         <input type="submit" value="Max UserId Active No Status (1)"/>
     </form>
-
-
+    <h1></h1>
+    <form method="get" action="getCountSessionByOldMobosversionGroupByMobappversion">
+        <input type="submit" value="Count Session By Old Mobosversion Group By Mobappversion"/>
+    </form>
 </div>
 
 </body>

@@ -1,6 +1,7 @@
 package com.example.kuzmichev.testsql.service;
 
 import com.example.kuzmichev.testsql.dao.DaoJDBC;
+import com.example.kuzmichev.testsql.dto.ResultSetDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,5 +30,10 @@ public class JDBCServiceImpl implements JDBCService {
     @Override
     public int getMaxActiveUserIdStatusNot1() {
         return daoJDBC.getMaxActiveUserIdStatusNot1();
+    }
+
+    @Override
+    public List<ResultSetDto> getCountSessionByOldMobosversionGroupByMobappversion() {
+        return daoJDBC.getCountSessionByOldMobosversionGroupByMobappversion();
     }
 }

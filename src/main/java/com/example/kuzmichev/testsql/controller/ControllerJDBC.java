@@ -16,22 +16,26 @@ public class ControllerJDBC {
     }
 
     @GetMapping(value = "/getNoSessionClient")
-    public String getNoSessionClient (Model model) {
+    public String getNoSessionClient(Model model) {
         model.addAttribute("noSessionClient", jdbcService.getNoSessionClient());
         return "noSessionClient";
     }
 
     @GetMapping(value = "/getUniqUserIdActive")
-    public String getUniqUserIdActive (Model model)
-    {
+    public String getUniqUserIdActive(Model model) {
         model.addAttribute("UniqUserIdActive", jdbcService.getUniqUserIdActive());
         return "uniqUserIdActive";
     }
 
     @GetMapping(value = "/getMaxActiveUserIdStatusNot1")
-    public String getMaxActiveUserIdStatusNot1 (Model model)
-    {
+    public String getMaxActiveUserIdStatusNot1(Model model) {
         model.addAttribute("maxActiveUserIdStatusNot1", jdbcService.getMaxActiveUserIdStatusNot1());
         return "maxActiveUserIdStatusNot1";
+    }
+
+    @GetMapping(value = "/getCountSessionByOldMobosversionGroupByMobappversion")
+    public String getCountSessionByOldMobosversionGroupByMobappversion(Model model) {
+        model.addAttribute("resultSet", jdbcService.getCountSessionByOldMobosversionGroupByMobappversion());
+        return "countSessionByOldMobosversionGroupByMobappversion";
     }
 }
