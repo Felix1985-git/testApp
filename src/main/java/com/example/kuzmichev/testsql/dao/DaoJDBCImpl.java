@@ -14,9 +14,9 @@ public class DaoJDBCImpl implements DaoJDBC {
     private JdbcTemplate jdbcTemplate;
 
     private final String GET_COUNT_CLIENTS_NO_SESSION = "SELECT COUNT (clientid ) FROM users WHERE userid NOT IN (SELECT DISTINCT userid FROM usersessions)";
-    private final String GET_LIST_UNIQ_USERS_ACTIVE_NO_CHANNEL_1 = "SELECT DISTINCT userid FROM usersessions WHERE channeltype NOT IN (1)";
+    private final String GET_LIST_UNIQ_USERS_ACTIVE_NO_CHANNEL_1 = "SELECT DISTINCT userid FROM usersessions WHERE userid NOT IN (SELECT userid FROM usersessions WHERE channeltype = 1) \n";
     private final String GET_MAX_USERID_ACTIVE_STATUS_NO_1 = "SELECT MAX(t.userid) FROM usersessions t JOIN users c ON t.userid=c.userid AND c.status NOT IN (1)";
-    private final String GET_COUNT_SESSION_BY_OLD_MOBOSVERSION_GROUP_BY_MOBAPPVERSION  = "SELECT COUNT (sessionid) AS Session_count,  mobappversion, mobosversion FROM usersessions t WHERE t.mobosversion  IS NULL  OR t.mobosversion < 80 GROUP BY mobappversion";
+    private final String GET_COUNT_SESSION_BY_OLD_MOBOSVERSION_GROUP_BY_MOBAPPVERSION  = "SELECT t.mobappversion, COUNT (t.sessionid) AS Session_count FROM usersessions t WHERE t.mobosversion IS NULL OR t.mobosversion < 80 GROUP BY t.mobappversion ORDER BY t.mobappversion \n";
 
     @Autowired
     public DaoJDBCImpl(JdbcTemplate jdbcTemplate) {

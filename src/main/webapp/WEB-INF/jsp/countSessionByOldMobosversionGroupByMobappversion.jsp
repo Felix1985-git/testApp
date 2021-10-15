@@ -12,15 +12,13 @@
 <div>
     <table border="1">
         <tr class="cell-1">
-            <th>Session_count</th>
             <th>mobappversion</th>
-            <th>mobosversion</th>
+            <th>Session_count</th>
         </tr>
         <c:forEach items="${resultSet}" var="resultSet">
         <tr>
-            <td align="center">${resultSet.count}</td>
             <td align="center">${resultSet.mobAppVersion}</td>
-            <td align="center">${resultSet.mobOsVersion}</td>
+            <td align="center">${resultSet.count}</td>
             </c:forEach>
     </table>
     </table>
